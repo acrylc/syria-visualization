@@ -17,6 +17,10 @@ d3.text('data/titles502.csv', function(error, _data){
 });
 var visualize = function(){
 
+  for (j=0;j<50;j++)
+    for (i=0;i<labels.length;i++)
+      $('#authors').html($('#authors').html() + ' ' + labels[i]);
+
   var chord = d3.layout.chord()
       .padding(.06)
       // .sortGroups(d3.descending)
@@ -127,6 +131,7 @@ dt = 3000;
     setTimeout(function() {
     $('#t2').css({'opacity':0});
     $('#t3').css({'opacity':1});
+    $('#authors').css({'opacity':0.4});
   }, t1+dt);
 
 setTimeout(function() {
@@ -142,7 +147,7 @@ setTimeout(function() {
 setTimeout(function() {
     $('#title').css({'opacity':0});
     $('#vis').css({'opacity':1});
-  }, t1+4*dt);
+  }, t1+3*dt);
 
 
   $('.center').css({'margin-top':'-'+$('.center').height()/2});
